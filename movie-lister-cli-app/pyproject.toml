@@ -1,0 +1,15 @@
+[project]
+name = "movie-lister-cli-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dependency-injector>=4.44.0",
+    "movie-lister-api",
+    "movie-lister-impl",
+]
+
+[tool.uv.sources]
+movie-lister-api = { path = "../movie-lister-api/dist/movie_lister_api-0.1.0-py3-none-any.whl" }
+movie-lister-impl = { path = "../movie-lister-impl/dist/movie_lister_impl-0.1.0-py3-none-any.whl" }

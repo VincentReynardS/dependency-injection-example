@@ -1,0 +1,16 @@
+[project]
+name = "movie-lister-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Vincent Reynard Satyadharma", email = "vincent_reynard@hotmail.com" }
+]
+dependencies = [
+    "pydantic>=2.10.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

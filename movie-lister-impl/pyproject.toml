@@ -1,0 +1,21 @@
+[project]
+name = "movie-lister-impl"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Vincent Reynard Satyadharma", email = "vincent_reynard@hotmail.com" }
+]
+dependencies = [
+    "dependency-injector>=4.44.0",
+    "movie-lister-api",
+    "pydantic-settings>=2.6.1",
+]
+
+[tool.uv.sources]
+movie-lister-api = { path = "../movie-lister-api/dist/movie_lister_api-0.1.0-py3-none-any.whl" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
