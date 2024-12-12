@@ -2,14 +2,20 @@ import csv
 from typing import List
 
 from dependency_injector.wiring import Provide, inject
-from movie_lister_api.provider.movie_provider import MovieProvider
 from movie_lister_api.service.model.movie import Movie
 
 from ..config import ConfigContainer
 from ..config.csv_movie_config import CSVMovieConfig
 
 
-class CSVMovieProviderImpl(MovieProvider):
+class CSVMovieProviderImpl:
+    """
+    A class that implements MovieProvider protocol which works with CSV data store.
+
+    Attributes:
+        csv_movie_config (CSVMovieConfig): Configuration class containing details of the movies' csv file
+    """
+
     @inject
     def __init__(
         self,
@@ -23,6 +29,12 @@ class CSVMovieProviderImpl(MovieProvider):
         return [movie for movie in all_movies if movie.director == director]
 
     def _find_all(self) -> List[Movie]:
+        """
+        Retrieves all movies.
+
+        Returns:
+            List[Movie]: A list containing all movies.
+        """
         with open(self.csv_movie_config.csv_file_path) as csv_file:
             csv_reader = csv.reader(
                 csv_file, delimiter=self.csv_movie_config.csv_delimiter
