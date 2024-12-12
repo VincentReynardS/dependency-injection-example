@@ -70,7 +70,7 @@ dependencies = [
     { name = "pydantic" },
 ]
 wheels = [
-    { filename = "movie_lister_api-0.1.0-py3-none-any.whl", hash = "sha256:e6a0e830cadfb2fc4952fffa19c7c262ed6937ac59776b7a32541bdcd5cfd835" },
+    { filename = "movie_lister_api-0.1.0-py3-none-any.whl", hash = "sha256:a77ca553a1b44b63e055e8e22b87d3de1c0d3b5f92acb5e8896f6bfd3d32fb6f" },
 ]
 
 [package.metadata]
