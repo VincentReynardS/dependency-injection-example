@@ -1,8 +1,4 @@
-from dependency_injector.containers import DeclarativeContainer
-from dependency_injector.providers import Singleton
-
+from .config_container import ConfigContainer
 from .csv_movie_config import CSVMovieConfig
 
-
-class ConfigContainer(DeclarativeContainer):
-    csv_movie_config = Singleton(CSVMovieConfig)
+__all__ = ['ConfigContainer', 'CSVMovieConfig']

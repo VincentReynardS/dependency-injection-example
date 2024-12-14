@@ -1,13 +1,4 @@
-from dependency_injector.containers import DeclarativeContainer
-from dependency_injector.providers import Container, Singleton
-
-from ..provider import ProviderContainer
 from .movie_service_impl import MovieServiceImpl
+from .service_container import ServiceContainer
 
-
-class ServiceContainer(DeclarativeContainer):
-    provider_container = Container(ProviderContainer)
-
-    movie_service = Singleton(
-        MovieServiceImpl, movie_provider=provider_container.movie_provider
-    )
+__all__ = ['ServiceContainer', 'MovieServiceImpl']
