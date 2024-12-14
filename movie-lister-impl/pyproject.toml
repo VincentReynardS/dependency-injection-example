@@ -19,3 +19,8 @@ build-backend = "hatchling.build"
 
 [tool.uv.sources]
 movie-lister-api = { path = "../movie-lister-api/dist/movie_lister_api-0.1.0-py3-none-any.whl" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]
