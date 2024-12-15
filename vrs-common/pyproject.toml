@@ -1,0 +1,14 @@
+[project]
+name = "vrs-common"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Vincent Reynard Satyadharma", email = "vincent_reynard@hotmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
