@@ -3,6 +3,7 @@ from typing import List
 
 from dependency_injector.wiring import Provide, inject
 from movie_lister_api.service.model.movie import Movie
+from vrs_common.results import ProviderResult
 
 from ..config import ConfigContainer
 from ..config.csv_movie_config import CSVMovieConfig
@@ -23,10 +24,19 @@ class CSVMovieProviderImpl:
     ):
         self.csv_movie_config = csv_movie_config
 
-    def get_movies_by_director(self, director: str) -> List[Movie]:
-        all_movies = self._find_all()
+    def get_movies_by_director(self, director: str) -> ProviderResult[List[Movie]]:
+        all_movies: List[Movie]
 
-        return [movie for movie in all_movies if movie.director == director]
+        try:
+            all_movies = self._find_all()
+        except Exception as e:
+            return ProviderResult.failed(
+                error=e, error_message='Failed retrieving all movies'
+            )
+
+        return ProviderResult.successful(
+            data=[movie for movie in all_movies if movie.director == director]
+        )
 
     def _find_all(self) -> List[Movie]:
         """

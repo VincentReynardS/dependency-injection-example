@@ -1,10 +1,12 @@
 from typing import List, Protocol
 
+from vrs_common.results import Result
+
 from .model.movie import Movie
 
 
 class MovieService(Protocol):
-    def get_movies_by_director(self, director: str) -> List[Movie]:
+    def get_movies_by_director(self, director: str) -> Result[List[Movie]]:
         """
         Gets a list of movies directed by the given director.
 

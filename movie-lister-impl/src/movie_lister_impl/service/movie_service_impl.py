@@ -3,6 +3,7 @@ from typing import List
 from dependency_injector.wiring import Provide, inject
 from movie_lister_api.provider.movie_provider import MovieProvider
 from movie_lister_api.service.model.movie import Movie
+from vrs_common.results import Result
 
 from ..provider import ProviderContainer
 
@@ -14,5 +15,7 @@ class MovieServiceImpl:
     ):
         self.movie_provider = movie_provider
 
-    def get_movies_by_director(self, director: str) -> List[Movie]:
-        return self.movie_provider.get_movies_by_director(director=director)
+    def get_movies_by_director(self, director: str) -> Result[List[Movie]]:
+        result = self.movie_provider.get_movies_by_director(director=director)
+
+        return Result.from_provider_result(result)

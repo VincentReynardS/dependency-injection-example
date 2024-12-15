@@ -9,8 +9,12 @@ authors = [
 ]
 dependencies = [
     "pydantic>=2.10.3",
+    "vrs-common",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv.sources]
+vrs-common = { path = "../vrs-common/dist/vrs_common-0.1.0-py3-none-any.whl" }
